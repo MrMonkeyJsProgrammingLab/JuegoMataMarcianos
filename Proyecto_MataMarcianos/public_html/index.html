@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Juego Mata-Marcianos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            canvas{
+                border:solid;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Canvas (lienzo) permite la generacion de graficos dinamicamente y animaciones -->
+        <canvas id="micanvas">
+            <!--Actualmente todos los navegadores soportan canvas -->
+            Tu navegador no soporta canvas
+        </canvas>
+        <script>
+            window.addEventListener("load",iniciar); //cargaremos la funcion llamada "iniciar"
+            function iniciar()
+            {
+                //alguna utilidad del canvas es convertir el texto dentro de el en imagen
+                var canvas=document.getElementById("micanvas");
+                var contexto=canvas.getContext("2d"); //de momento solo permite que sea bidimensional
+                /*se trabaja el canvas a traves del contexto
+                usaremos las propiedades del contexto para cambiar el mismo*/
+                //1ro hay que definir el estilo y luego dibujarlo
+                contexto.fillStyle="red"; //color en hexadecimal, rgb,rgba, o predefinidos
+                contexto.fillRect(20,20,50,50); //dibujar un rectangulo en el canvas         
+                contexto.globalAlpha="0.3";//opacidad de los elementos posteriores (0 a 1)
+                contexto.fillStyle="rgba(0,0,200,0.1)"; //rgba = transparencia
+                contexto.fillRect(120,20,50,50);               
+                contexto.strokeStyle="blue";//borde de un rectangulo
+                contexto.lineWidth="10";//grosor de linea, por defecto 1
+                contexto.strokeRect(90,90,50,50);
+            }
+        </script>
+    </body>
+</html>
